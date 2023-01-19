@@ -55,7 +55,6 @@ bool UzytkownikMenedzer::czyIstniejeLogin(string login)
     return false;
 }
 
-
 void UzytkownikMenedzer::wypiszWszystkichUzytkownikow()
 {
     for (unsigned int i = 0; i < uzytkownicy.size(); i++)
@@ -67,18 +66,12 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow()
 }
 
 
-void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
-{
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
-}
-
 bool UzytkownikMenedzer::czyUzytkownikJestZalogowany()
 {
-    if (idZalogowanegoUzytkownika == 0)
-    {
+    if (idZalogowanegoUzytkownika > 0)
+        return true;
+    else
         return false;
-    }
-    return true;
 }
 
 char UzytkownikMenedzer::wybierzOpcjeZMenuUzytkownika()
@@ -160,9 +153,9 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
 
 }
 
-int UzytkownikMenedzer::wylogowanieUzytkownika()
+void UzytkownikMenedzer::wylogowanieUzytkownika()
 {
-    return idZalogowanegoUzytkownika = 0;
+    idZalogowanegoUzytkownika = 0;
 }
 
 int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()

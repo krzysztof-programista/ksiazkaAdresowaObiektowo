@@ -8,7 +8,10 @@ void KsiazkaAdresowa::rejestracjaUzytkownika()
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
     uzytkownikMenedzer.logowanieUzytkownika();
-    adresatMenedzer.ustawIdZalogowanegoUzytkownika(pobierzIdZalogowanegoUzytkownika());
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    }
 }
 
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
@@ -53,24 +56,28 @@ void KsiazkaAdresowa::wylogowanieUzytkownika()
     uzytkownikMenedzer.wylogowanieUzytkownika();
 }
 
-void KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
-{
-    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-}
-
 void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
 {
-    adresatMenedzer.wyswietlWszystkichAdresatow();
+    adresatMenedzer->wyswietlWszystkichAdresatow();
 }
 
 int KsiazkaAdresowa::pobierzIdOstatniegoAdresata()
 {
-    return adresatMenedzer.pobierzIdOstatniegoAdresata();
+    return adresatMenedzer->pobierzIdOstatniegoAdresata();
 }
 
 void KsiazkaAdresowa::dodajAdresata()
 {
-    adresatMenedzer.dodajAdresata();
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer->dodajAdresata();
+    }
+    else
+    {
+        cout << "Aby dodac adresata, nalezy najpier sie zalogowac" << endl;
+        system("pause");
+    }
+
 }
 
 int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
