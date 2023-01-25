@@ -61,11 +61,6 @@ void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
     adresatMenedzer->wyswietlWszystkichAdresatow();
 }
 
-int KsiazkaAdresowa::pobierzIdOstatniegoAdresata()
-{
-    return adresatMenedzer->pobierzIdOstatniegoAdresata();
-}
-
 void KsiazkaAdresowa::dodajAdresata()
 {
     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
@@ -83,5 +78,25 @@ void KsiazkaAdresowa::dodajAdresata()
 int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
 {
     return uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+    adresatMenedzer->wyszukajAdresatowPoImieniu();
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
+{
+    adresatMenedzer->wyszukajAdresatowPoNazwisku();
+}
+
+void KsiazkaAdresowa::usunAdresata()
+{
+    adresatMenedzer->usunAdresata();
+}
+
+void KsiazkaAdresowa::edytujAdresata()
+{
+    adresatMenedzer->edytujAdresata();
 }
 

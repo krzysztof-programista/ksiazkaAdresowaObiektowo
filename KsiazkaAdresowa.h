@@ -13,6 +13,7 @@ class KsiazkaAdresowa
 {
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer *adresatMenedzer;
+
     const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
@@ -30,6 +31,7 @@ public:
 
     void rejestracjaUzytkownika();
     void logowanieUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
     void wypiszWszystkichUzytkownikow();
 
     char wybierzOpcjeZMenuGlownego();
@@ -40,9 +42,10 @@ public:
     void wylogowanieUzytkownika();
     void wyswietlWszystkichAdresatow();
     void dodajAdresata();
-
-    int pobierzIdZalogowanegoUzytkownika();
-    int pobierzIdOstatniegoAdresata();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void usunAdresata();
+    void edytujAdresata();
 
 };
 

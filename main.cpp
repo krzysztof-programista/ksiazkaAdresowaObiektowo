@@ -42,8 +42,20 @@ int main()
                 case '1':
                     ksiazkaAdresowa.dodajAdresata();
                     break;
+                case '2':
+                    ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
+                    break;
+                case '3':
+                    ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
+                    break;
                 case '4':
                     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                    break;
+                case '5':
+                    ksiazkaAdresowa.usunAdresata();
+                    break;
+                case '6':
+                    ksiazkaAdresowa.edytujAdresata();
                     break;
                 case '7':
                     ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
@@ -61,67 +73,3 @@ int main()
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//TESTY AdresatMenedzer
-#include "AdresatMenedzer.h"
-
-int t3_main()
-{
-    AdresatMenedzer adresatMenedzer("Adresaci.txt", 2);
-    adresatMenedzer.wyswietlWszystkichAdresatow();
-    adresatMenedzer.dodajAdresata();
-    adresatMenedzer.wyswietlWszystkichAdresatow();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//TESTY PlikZAdresatami
-#include "Adresat.h"
-#include "PlikZAdresatami.h"
-
-int t4_main()
-{
-    PlikZAdresatami plikZAdresatami("Adresaci-test.txt");
-    Adresat adresat1 (1, 9, "xxx", "xxx", "xxx", "xxx", "xxx");
-    Adresat adresat2 (2, 9, "xxx", "xxx", "xxx", "xxx", "xxx");
-
-    plikZAdresatami.dopiszAdresataDoPliku(adresat1);
-    plikZAdresatami.dopiszAdresataDoPliku(adresat2);
-
-
-    cout << plikZAdresatami.pobierzIdOstatniegoAdresata();
-}
-
-
-
-
-
-
-
-
-
